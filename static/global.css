@@ -3,3 +3,16 @@
 	padding: 0;
 	box-sizing: border-box;
 }
+h1, h2,h3,h4,h5,h6{
+	font-family: "Raleway", sans-serif;
+}
+
+.ibm-plex-mono-regular {
+	font-family: "IBM Plex Mono", monospace;
+	font-weight: 400;
+	font-style: normal;
+  }
+
+body, p, span, div{
+	font-family: 'IBM Plex Mono', monospace;
+}
