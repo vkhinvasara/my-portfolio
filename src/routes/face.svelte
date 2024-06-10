@@ -1,24 +1,10 @@
-<script>
-    import { onMount } from 'svelte';
-    import { Splide } from '@splidejs/splide';
+<script lang="ts">
+   	import { onMount } from 'svelte';
+    import { Splide, SplideSlide } from '@splidejs/svelte-splide';
     import { AutoScroll } from '@splidejs/splide-extension-auto-scroll';
-	import '@splidejs/splide/dist/css/splide.min.css';
+    import '@splidejs/splide/dist/css/splide.min.css';
 
-    let splide;
-
-    onMount(() => {
-        splide = new Splide('.technologies-images', {
-            type: 'loop',
-            drag: 'free',
-            focus: 'center',
-            perPage: 3,
-            autoScroll: {
-                speed: 1,
-            },
-        });
-
-        splide.mount({ AutoScroll });
-    });
+	
 </script>
 
 <div class="face-landing-page">
@@ -31,22 +17,35 @@
 		<img src="/profile.jpg" alt="Vaibhav Khinvasara's Profile" />
 	</div>	
 </div>
-<Splide aria-label="My Favorite Images">
-<div class="technologies-worked-with">
-    <div class="splide technologies-images">
-        <div class="splide__track">
-            <ul class="splide__list">
-                <li class="splide__slide"><img src="/django.svg" alt="Django" /></li>
-                <li class="splide__slide"><img src="/rust.svg" alt="Rust" /></li>
-                <li class="splide__slide"><img src="/actix.png" alt="Actix-web" /></li>
-                <li class="splide__slide"><img src="/wasm.svg" alt="" /></li>
-                <li class="splide__slide"><img src="/flask.svg" alt="" /></li>
-            </ul>
-        </div>
-    </div>
-</div>
-</Splide>
 
+<div class="carosel">
+<Splide aria-label = "Tech Stack" options={{autoplay: true, interval: 1000, pauseOnHover: false, perPage: 2, gap: '1rem', autoWidth: true, arrows: false, pagination: false}}>
+	<SplideSlide>
+		<img src="/rust.svg" alt="Rust" />
+	</SplideSlide>
+	<SplideSlide>
+		<img src="/actix.png" alt="Actix-Web" />
+	</SplideSlide>
+	<SplideSlide>
+		<img src="/django.svg" alt="Django" />
+	</SplideSlide>
+	<SplideSlide>
+		<img src="/flask.svg" alt="Flask" />
+	</SplideSlide>
+	<SplideSlide>
+		<img src="/wasm.svg" alt="Wasm" />
+	</SplideSlide>
+	<SplideSlide>
+		<img src="/svelte.svg" alt="Svelte" />
+	</SplideSlide>
+	<SplideSlide>
+		<img src="/react.svg" alt="React" />
+	</SplideSlide>
+	<SplideSlide>
+		<img src="/solidity.svg" alt="Solidity">
+	</SplideSlide>
+</Splide>
+</div>
 
 <style>
 	.face-landing-page {
@@ -75,37 +74,24 @@
 	.profile-image img {
 		width: 100%;
 	}
-
-	@keyframes scroll{
-		0% {
-			transform: translateX(0);
-		}
-		100% {
-			transform: translateX(calc(-250px*7));
-		}
 	
-	}
-	.technologies-worked-with {
+	.carosel{
 		display: flex;
-		justify-content: space-around;
-		overflow-x: auto;
-		align-items: center;
-		height: 250px;
+		overflow-x: hidden;
+		overflow-y: hidden;
 		width: 60%;
-		margin: 0.5rem auto;
+		overflow-x: auto;
+		white-space: nowrap;
+		height: auto;
+		align-items: center;
+		justify-content: center;
+		margin:auto;
 	}
+	.carosel img{
+		width: 100px;
+		height: auto;
+	}
+
 	
-	.technologies-images {
-		display: flex;
-		justify-content: flex-start;
-		margin: 1rem;
-		animation: scroll 40s linear infinite;
-	}
-	.technologies-images img{
-		margin: 1 rem;
-		width: 250px;
-		display: flex;
-		justify-content: space-around;
-	}
 </style>
 
