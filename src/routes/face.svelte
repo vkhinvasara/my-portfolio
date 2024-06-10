@@ -1,6 +1,26 @@
 <script>
+    import { onMount } from 'svelte';
+    import { Splide } from '@splidejs/splide';
+    import { AutoScroll } from '@splidejs/splide-extension-auto-scroll';
+	import '@splidejs/splide/dist/css/splide.min.css';
 
+    let splide;
+
+    onMount(() => {
+        splide = new Splide('.technologies-images', {
+            type: 'loop',
+            drag: 'free',
+            focus: 'center',
+            perPage: 3,
+            autoScroll: {
+                speed: 1,
+            },
+        });
+
+        splide.mount({ AutoScroll });
+    });
 </script>
+
 <div class="face-landing-page">
 	<div class="profile-description">
 		<h1>Vaibhav Khinvasara</h1>
@@ -11,15 +31,23 @@
 		<img src="/profile.jpg" alt="Vaibhav Khinvasara's Profile" />
 	</div>	
 </div>
+<Splide aria-label="My Favorite Images">
 <div class="technologies-worked-with">
-	<div class="technologies">
-		<h2>Technologies worked with:</h2>
-	</div>
-	<div class="technologies-images">
-		<img src = "/django.svg" alt="Django" />
-		<img src = "/rust.svg" alt="Rust" />
-	</div>
+    <div class="splide technologies-images">
+        <div class="splide__track">
+            <ul class="splide__list">
+                <li class="splide__slide"><img src="/django.svg" alt="Django" /></li>
+                <li class="splide__slide"><img src="/rust.svg" alt="Rust" /></li>
+                <li class="splide__slide"><img src="/actix.png" alt="Actix-web" /></li>
+                <li class="splide__slide"><img src="/wasm.svg" alt="" /></li>
+                <li class="splide__slide"><img src="/flask.svg" alt="" /></li>
+            </ul>
+        </div>
+    </div>
 </div>
+</Splide>
+
+
 <style>
 	.face-landing-page {
 		display: flex;
@@ -62,12 +90,11 @@
 		justify-content: space-around;
 		overflow-x: auto;
 		align-items: center;
-		width: 90%;
+		height: 250px;
+		width: 60%;
 		margin: 0.5rem auto;
 	}
-	.technologies {
-		width: 50%;
-	}
+	
 	.technologies-images {
 		display: flex;
 		justify-content: flex-start;
@@ -75,8 +102,10 @@
 		animation: scroll 40s linear infinite;
 	}
 	.technologies-images img{
+		margin: 1 rem;
 		width: 250px;
 		display: flex;
 		justify-content: space-around;
 	}
 </style>
+

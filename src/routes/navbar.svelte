@@ -10,7 +10,7 @@
 	</div>
 	<div class="socials">
 		<a href="https://www.linkedin.com/in/vaibhav-khinvasara-61830020b/"><img src='/linkedin.svg' alt="Linkedin"></a>
-		<a href = "github.com/vkhinvasara"><img src='/github.svg' alt="Github"></a>
+		<a href = "https://www.github.com/vkhinvasara"><img src='/github.svg' alt="Github"></a>
 	</div>
 </nav>
 
